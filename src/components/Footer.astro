@@ -3,40 +3,84 @@ const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
   <div class="container inner">
-    <div>
-      <span class="brand">🎂 Laurens Cakes</span>
-      <p>Handmade celebration cakes, baked with love.</p>
+    <div class="col brand-col">
+      <span class="brand">Laurens Cakes</span>
+      <span class="tagline">Bespoke Bakery</span>
+      <p>Handmade celebration cakes and sweet treats, baked with love and shipped across the UK.</p>
     </div>
-    <div class="links">
+
+    <div class="col">
+      <h4>Explore</h4>
+      <a href="/">Home</a>
       <a href="/gallery">Gallery</a>
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
-      <a href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+
+    <div class="col">
+      <h4>Enquiries</h4>
+      <a href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">Instagram @laurenscakess</a>
+      <a href="/contact">Order a cake</a>
+      <span class="muted">Fully insured &amp; registered</span>
+      <span class="muted">UK-wide shipping</span>
     </div>
   </div>
+
   <div class="container copy">
     <small>© {year} Laurens Cakes. All rights reserved.</small>
+    <small class="dot">Handcrafted in the UK</small>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background: var(--cocoa);
-    color: #f3e7df;
-    padding: 2.5rem 0 1.5rem;
-    margin-top: 2rem;
+    background: var(--espresso);
+    color: #e6d9cc;
+    padding: clamp(3rem, 6vw, 4.5rem) 0 1.75rem;
+    margin-top: 0;
+    border-top: 2px solid transparent;
+    border-image: var(--gold-grad) 1;
   }
-  .site-footer p { color: #d9c6bd; margin: .3rem 0 0; }
   .inner {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1.2fr;
+    gap: 2.5rem;
+  }
+  .col { display: flex; flex-direction: column; gap: .55rem; }
+  .brand { font-family: var(--font-head); font-size: 1.9rem; font-weight: 500; color: #fff; line-height: 1; }
+  .tagline {
+    font-size: .62rem; letter-spacing: .4em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: .5rem;
+  }
+  .brand-col p { color: #c3b2a4; margin: .4rem 0 0; max-width: 32ch; font-size: .95rem; }
+
+  .col h4 {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin: 0 0 .4rem;
+  }
+  .col a { color: #e6d9cc; font-size: .95rem; }
+  .col a:hover { color: var(--gold); }
+  .muted { color: #a4958a; font-size: .9rem; }
+
+  .copy {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,.1);
     display: flex;
     justify-content: space-between;
-    gap: 1.5rem;
     flex-wrap: wrap;
+    gap: .5rem;
   }
-  .brand { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: #fff; }
-  .links { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
-  .links a { color: #f3e7df; }
-  .links a:hover { color: var(--pink); }
-  .copy { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.12); }
-  .copy small { color: #c6b2a9; }
+  .copy small { color: #9d8d81; letter-spacing: .08em; font-size: .78rem; }
+
+  @media (max-width: 760px) {
+    .inner { grid-template-columns: 1fr; gap: 2rem; }
+    .copy { justify-content: center; text-align: center; }
+    .copy .dot { display: none; }
+  }
 </style>

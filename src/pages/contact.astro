@@ -1,14 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Contact & Orders — Laurens Cakes" description="Order a custom cake or get in touch with Laurens Cakes.">
-  <section class="section">
+<Base title="Contact & Orders — Laurens Cakes" description="Order a bespoke cake or get in touch with Laurens Cakes.">
+  <section class="page-head">
+    <div class="container center reveal">
+      <p class="eyebrow">Enquiries</p>
+      <hr class="divider" />
+      <h1>Order Your Cake</h1>
+      <p class="lead">Tell me about your occasion and what you have in mind, and I'll be in
+        touch with availability and a quote.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: clamp(2rem,5vw,3.5rem);">
     <div class="container contact">
-      <div class="intro">
-        <p class="eyebrow">Get in touch</p>
-        <h1>Order your cake</h1>
-        <p>Tell me about your occasion and what you have in mind, and I'll get back to
-          you with availability and a quote. The more detail the better.</p>
+      <div class="intro reveal">
+        <h2>Let's create<br />something sweet</h2>
+        <p>The more detail you can share — flavours, servings, theme, colours and your date
+          — the better I can tailor your quote.</p>
 
         <ul class="channels">
           <li>
@@ -27,6 +36,13 @@ import Base from '../layouts/Base.astro';
               <small> — replace with your real email</small>
             </div>
           </li>
+          <li>
+            <span class="ico">📦</span>
+            <div>
+              <strong>Shipping</strong><br />
+              <span class="plain">Shipped anywhere in the UK</span>
+            </div>
+          </li>
         </ul>
       </div>
 
@@ -36,7 +52,7 @@ import Base from '../layouts/Base.astro';
         2. Replace YOUR_FORM_ID below with your form's ID.
         Prefer something else? Cloudflare Pages Functions or a Worker also work.
       -->
-      <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <label>
           Your name
           <input type="text" name="name" required />
@@ -46,14 +62,14 @@ import Base from '../layouts/Base.astro';
           <input type="email" name="email" required />
         </label>
         <label>
-          Occasion & date
+          Occasion &amp; date
           <input type="text" name="occasion" placeholder="e.g. 30th birthday, 14 Feb" />
         </label>
         <label>
           Tell me about your cake
           <textarea name="message" rows="5" placeholder="Flavours, size/servings, theme, colours..." required></textarea>
         </label>
-        <button class="btn" type="submit">Send enquiry</button>
+        <button class="btn gold" type="submit">Send Enquiry</button>
         <p class="note">Submitting sends your enquiry straight to my inbox.</p>
       </form>
     </div>
@@ -61,40 +77,67 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <style>
+  .page-head {
+    background:
+      radial-gradient(80% 120% at 80% 0%, var(--blush-soft), transparent 55%),
+      var(--ivory);
+    padding: clamp(3rem, 7vw, 5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+  }
   .contact {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 3rem;
     align-items: start;
   }
-  .channels { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 1rem; }
-  .channels li { display: flex; gap: .9rem; align-items: flex-start; }
+  .intro h2 { margin-bottom: .4em; }
+  .channels { list-style: none; padding: 0; margin: 1.75rem 0 0; display: grid; gap: 1.25rem; }
+  .channels li { display: flex; gap: 1rem; align-items: flex-start; }
   .ico { font-size: 1.5rem; }
-  .channels small { color: var(--cocoa-soft); }
+  .channels strong { color: var(--espresso); font-weight: 500; }
+  .channels small { color: var(--mute); }
+  .plain { color: var(--cocoa-soft); }
 
   .form {
     background: var(--white);
+    border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 1.75rem;
+    padding: 2.25rem;
     box-shadow: var(--shadow);
     display: grid;
-    gap: 1rem;
+    gap: 1.1rem;
   }
-  label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; color: var(--cocoa); }
-  input, textarea {
-    font: inherit;
-    padding: .7rem .85rem;
-    border: 1px solid var(--cream-2);
-    border-radius: 12px;
-    background: var(--cream);
-    color: var(--cocoa);
+  label {
+    display: grid;
+    gap: .4rem;
     font-weight: 400;
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--cocoa-soft);
   }
-  input:focus, textarea:focus { outline: 2px solid var(--pink); border-color: var(--pink); }
-  .form .btn { justify-self: start; border: none; cursor: pointer; }
-  .note { margin: 0; font-size: .82rem; color: var(--cocoa-soft); }
+  input, textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: normal;
+    text-transform: none;
+    padding: .85rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--ivory);
+    color: var(--cocoa);
+    transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+  }
+  input::placeholder, textarea::placeholder { color: var(--mute); }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(198,161,91,.15);
+  }
+  .form .btn { justify-self: start; border: none; cursor: pointer; margin-top: .25rem; }
+  .note { margin: 0; font-size: .82rem; color: var(--mute); }
 
-  @media (max-width: 760px) {
+  @media (max-width: 820px) {
     .contact { grid-template-columns: 1fr; }
   }
 </style>

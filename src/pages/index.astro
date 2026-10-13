@@ -3,29 +3,41 @@ import Base from '../layouts/Base.astro';
 import CakeCard from '../components/CakeCard.astro';
 
 const specialties = [
-  { title: 'Celebration Cakes', emoji: '🎂', tag: 'Popular', desc: 'Show-stopping centrepieces for birthdays and milestones, made to your theme.' },
-  { title: 'Wedding Cakes', emoji: '💐', tag: 'Bespoke', desc: 'Elegant tiered designs tailored to your big day, tasting included.' },
-  { title: 'Cupcakes & Treats', emoji: '🧁', desc: 'Batches of soft, beautifully piped cupcakes perfect for parties.' },
-  { title: 'Custom Designs', emoji: '🍰', tag: 'Made to order', desc: 'Have an idea? Bring it to life with a one-of-a-kind custom bake.' },
+  { title: 'Celebration Cakes', emoji: '🎂', tag: 'Signature', desc: 'Show-stopping centrepieces for birthdays and milestones, designed around your theme.' },
+  { title: 'Wedding Cakes', emoji: '💐', tag: 'Bespoke', desc: 'Elegant tiered designs tailored to your day, with a private tasting included.' },
+  { title: 'Cupcakes & Treats', emoji: '🧁', desc: 'Delicately piped cupcakes and sweet treats, perfect for gifting and parties.' },
+  { title: 'Custom Designs', emoji: '🍰', tag: 'Made to order', desc: 'Have a vision? I bring one-of-a-kind cake designs to life, just for you.' },
+];
+
+const testimonials = [
+  { quote: 'The most beautiful cake we have ever had — and it tasted even better than it looked.', name: 'Sophie & James', role: 'Wedding' },
+  { quote: 'Absolutely stunning. Everyone at the party asked where it was from. Will order again.', name: 'Hannah', role: 'Birthday' },
+  { quote: 'Shipped perfectly to our door and arrived flawless. Genuinely exquisite work.', name: 'Megan', role: 'Celebration' },
 ];
 ---
-<Base title="Laurens Cakes — Handmade Celebration Cakes">
+<Base title="Laurens Cakes — Bespoke Handmade Cakes">
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow">Baked fresh to order</p>
-        <h1>Cakes made with love for life's sweetest moments</h1>
-        <p class="lead">From birthdays to weddings, Laurens Cakes creates handmade,
-          custom cakes that taste as wonderful as they look.</p>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Bespoke Bakery</p>
+        <h1>Exquisite cakes for life's<br /><span class="gold-text">most treasured</span> moments</h1>
+        <p class="lead">Handmade, made-to-order cakes and sweet treats — crafted with the
+          finest ingredients and shipped anywhere in the UK.</p>
         <div class="cta">
-          <a class="btn" href="/contact">Order a Cake</a>
-          <a class="btn ghost" href="/gallery">View Gallery</a>
+          <a class="btn gold" href="/contact">Enquire Now</a>
+          <a class="btn ghost" href="/gallery">View the Collection</a>
+        </div>
+        <div class="trust">
+          <span>✶ Fully insured &amp; registered</span>
+          <span>✶ UK-wide shipping</span>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="blob"></div>
-        <span class="cake">🎂</span>
+      <div class="hero-art reveal" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="plate">
+          <span class="cake">🎂</span>
+        </div>
       </div>
     </div>
   </section>
@@ -33,12 +45,54 @@ const specialties = [
   <!-- Specialties -->
   <section class="section">
     <div class="container">
-      <div class="center">
-        <p class="eyebrow">What I make</p>
-        <h2>Something sweet for every occasion</h2>
+      <div class="center reveal">
+        <p class="eyebrow">The Collection</p>
+        <hr class="divider" />
+        <h2>Crafted for every occasion</h2>
+        <p class="lead">From intimate celebrations to grand weddings, each cake is made
+          entirely by hand and designed around you.</p>
       </div>
-      <div class="grid">
+      <div class="grid reveal">
         {specialties.map((s) => <CakeCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature / story strip -->
+  <section class="story">
+    <div class="container story-inner">
+      <div class="story-art reveal" aria-hidden="true"><span>🍰</span></div>
+      <div class="story-copy reveal">
+        <p class="eyebrow">The Laurens Difference</p>
+        <h2>Made by hand,<br />made with love</h2>
+        <p>No shortcuts, no mass production. Every order is baked fresh, decorated by hand,
+          and finished to a standard worthy of your celebration.</p>
+        <p>A fully insured and registered home bakery — with the care of a boutique and
+          the reach to deliver across the UK.</p>
+        <a class="btn ghost" href="/about">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="center reveal">
+        <p class="eyebrow">Kind Words</p>
+        <hr class="divider" />
+        <h2>Loved by every occasion</h2>
+      </div>
+      <div class="t-grid reveal">
+        {testimonials.map((t) => (
+          <figure class="t-card">
+            <span class="quote-mark">“</span>
+            <blockquote>{t.quote}</blockquote>
+            <figcaption>
+              <span class="t-name">{t.name}</span>
+              <span class="t-role">{t.role}</span>
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </div>
   </section>
@@ -46,29 +100,27 @@ const specialties = [
   <!-- Bakery info / trust band -->
   <section class="info">
     <div class="container">
-      <div class="center">
-        <p class="eyebrow">Bespoke cakes &amp; sweet treats</p>
-        <h2>Why order from Laurens Cakes</h2>
+      <div class="center reveal">
+        <p class="eyebrow">Why Laurens Cakes</p>
+        <h2>Boutique quality, delivered</h2>
       </div>
-      <ul class="info-grid">
-        <li><span class="ico">🍰</span><h3>Bespoke cakes &amp; sweet treats</h3><p>Every bake made to order, designed around you.</p></li>
-        <li><span class="ico">✍🏼</span><h3>Fully insured &amp; registered</h3><p>A registered, fully insured home bakery you can trust.</p></li>
-        <li><span class="ico">🤎</span><h3>Easy enquiries</h3><p>DM me with any enquiries and I'll help you plan.</p></li>
-        <li><span class="ico">📦</span><h3>UK-wide shipping</h3><p>I ship anywhere in the UK, right to your door.</p></li>
+      <ul class="info-grid reveal">
+        <li><span class="ico">🍰</span><h3>Bespoke &amp; sweet treats</h3><p>Every bake made to order, designed around you.</p></li>
+        <li><span class="ico">✍🏼</span><h3>Insured &amp; registered</h3><p>A registered, fully insured home bakery you can trust.</p></li>
+        <li><span class="ico">🤎</span><h3>Personal service</h3><p>DM me with any enquiries and I'll help you plan.</p></li>
+        <li><span class="ico">📦</span><h3>UK-wide shipping</h3><p>Carefully packaged and shipped anywhere in the UK.</p></li>
       </ul>
     </div>
   </section>
 
-  <!-- Instagram band -->
+  <!-- Instagram CTA -->
   <section class="ig-band">
-    <div class="container ig-inner">
-      <div>
-        <p class="eyebrow light">Follow along</p>
-        <h2 class="light">See the latest bakes on Instagram</h2>
-        <p class="light-p">New cakes, behind-the-scenes and daily sweetness over on
-          <strong>@laurenscakess</strong>.</p>
-      </div>
-      <a class="btn ig-btn" href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">
+    <div class="container ig-inner reveal">
+      <p class="eyebrow light">Follow Along</p>
+      <h2 class="light">See the latest creations<br />on Instagram</h2>
+      <p class="light-p">New cakes, behind-the-scenes moments and daily sweetness over on
+        <strong>@laurenscakess</strong>.</p>
+      <a class="btn gold" href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">
         Follow @laurenscakess
       </a>
     </div>
@@ -76,80 +128,184 @@ const specialties = [
 </Base>
 
 <style>
+  /* Hero */
   .hero {
-    background: linear-gradient(160deg, var(--cream) 0%, var(--cream-2) 100%);
+    position: relative;
+    background:
+      radial-gradient(90% 120% at 85% 10%, var(--blush-soft) 0%, transparent 55%),
+      linear-gradient(170deg, var(--ivory) 0%, var(--ivory-2) 100%);
     overflow: hidden;
   }
   .hero-inner {
     display: grid;
-    grid-template-columns: 1.1fr .9fr;
-    gap: 2rem;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 2.5rem;
     align-items: center;
-    padding: clamp(3rem, 7vw, 5.5rem) 1.25rem;
+    padding: clamp(3.5rem, 8vw, 7rem) 1.5rem;
   }
-  .cta { display: flex; gap: .9rem; flex-wrap: wrap; margin-top: 1.4rem; }
-  .lead { margin-inline: 0; }
+  .hero h1 { margin-bottom: .4em; }
+  .cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; }
+  .hero .lead { margin-inline: 0; }
+  .trust {
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    font-size: .78rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .trust span { white-space: nowrap; }
 
-  .hero-art { position: relative; display: grid; place-items: center; min-height: 320px; }
-  .blob {
-    width: min(360px, 80%);
+  .hero-art { position: relative; display: grid; place-items: center; min-height: 380px; }
+  .ring {
+    position: absolute;
+    width: min(420px, 86%);
     aspect-ratio: 1;
-    background: radial-gradient(circle at 30% 30%, #fbd3e4, var(--pink));
-    border-radius: 48% 52% 55% 45% / 55% 45% 55% 45%;
-    animation: morph 9s ease-in-out infinite;
-    box-shadow: var(--shadow);
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    opacity: .5;
+    animation: spin 40s linear infinite;
   }
-  .cake { position: absolute; font-size: clamp(6rem, 16vw, 10rem); filter: drop-shadow(0 12px 18px rgba(74,54,48,.25)); }
-  @keyframes morph {
-    0%,100% { border-radius: 48% 52% 55% 45% / 55% 45% 55% 45%; }
-    50% { border-radius: 55% 45% 45% 55% / 45% 55% 45% 55%; }
+  .ring::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border-radius: 50%;
+    border: 1px dashed rgba(198,161,91,.4);
   }
+  .plate {
+    width: min(330px, 74%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffffff, var(--blush));
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .cake { font-size: clamp(6rem, 15vw, 9.5rem); filter: drop-shadow(0 16px 22px rgba(43,33,29,.28)); }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
+  /* Specialties grid */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.75rem;
+    margin-top: 3rem;
   }
 
-  .info { background: var(--cream-2); }
+  /* Story strip */
+  .story { background: var(--espresso); color: #e9ddd0; }
+  .story-inner {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: clamp(3.5rem, 8vw, 6rem) 1.5rem;
+  }
+  .story-art {
+    aspect-ratio: 1;
+    border-radius: var(--radius);
+    background: radial-gradient(circle at 32% 30%, #fff, var(--blush));
+    display: grid; place-items: center;
+    box-shadow: var(--shadow-lg);
+    max-width: 360px;
+  }
+  .story-art span { font-size: clamp(5rem, 12vw, 8rem); }
+  .story-copy h2 { color: #fff; }
+  .story-copy p { color: #c9b9ab; }
+  .story-copy .eyebrow { color: var(--gold); }
+  .story-copy .btn.ghost { color: #fff; border-color: rgba(255,255,255,.3); margin-top: .5rem; }
+  .story-copy .btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* Testimonials */
+  .testimonials { background: var(--ivory); }
+  .t-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.75rem;
+    margin-top: 3rem;
+  }
+  .t-card {
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2.5rem 1.75rem 1.75rem;
+    margin: 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .quote-mark {
+    position: absolute;
+    top: .1rem; left: 1.1rem;
+    font-family: var(--font-head);
+    font-size: 4.5rem;
+    line-height: 1;
+    color: var(--blush);
+  }
+  .t-card blockquote {
+    margin: 0 0 1.25rem;
+    font-family: var(--font-head);
+    font-size: 1.35rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--cocoa);
+  }
+  .t-card figcaption { display: flex; flex-direction: column; }
+  .t-name { font-weight: 500; color: var(--espresso); letter-spacing: .04em; }
+  .t-role { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); margin-top: .2rem; }
+
+  /* Info band */
+  .info { background: var(--ivory-2); }
   .info-grid {
     list-style: none;
     padding: 0;
-    margin: 2.5rem 0 0;
+    margin: 3rem 0 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
   .info-grid li {
     background: var(--white);
+    border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 1.6rem;
+    padding: 2rem 1.5rem;
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-sm);
+    transition: transform .5s var(--ease), box-shadow .5s var(--ease);
   }
+  .info-grid li:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
   .info-grid .ico { font-size: 2.4rem; }
-  .info-grid p { margin: 0; font-size: .95rem; }
+  .info-grid h3 { font-size: 1.3rem; margin-top: .6rem; }
+  .info-grid p { margin: 0; font-size: .92rem; }
 
-  .ig-band { background: linear-gradient(135deg, var(--pink), var(--pink-deep)); }
+  /* Instagram CTA */
+  .ig-band {
+    background:
+      radial-gradient(80% 140% at 50% 0%, rgba(198,161,91,.18), transparent 60%),
+      var(--cocoa);
+    text-align: center;
+  }
   .ig-inner {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    padding: clamp(2.5rem, 6vw, 4rem) 1.25rem;
+    gap: 1rem;
+    padding: clamp(3.5rem, 7vw, 5.5rem) 1.5rem;
   }
   .light { color: #fff; }
-  .light-p { color: #ffeaf3; margin: 0; }
-  .eyebrow.light { color: #ffe6b8; }
-  .ig-btn { background: #fff; color: var(--pink-deep); }
-  .ig-btn:hover { background: #fff; color: #bc5888; }
+  .light-p { color: #e4d4c6; margin: 0 0 1rem; max-width: 46ch; }
+  .eyebrow.light { color: var(--gold); }
+  .eyebrow.light::before, .eyebrow.light::after { background: var(--gold); }
 
-  @media (max-width: 760px) {
-    .hero-inner { grid-template-columns: 1fr; text-align: center; }
-    .cta { justify-content: center; }
-    .lead { margin-inline: auto; }
-    .hero-art { order: -1; min-height: 220px; }
+  @media (max-width: 820px) {
+    .hero-inner, .story-inner { grid-template-columns: 1fr; text-align: center; }
+    .hero .lead { margin-inline: auto; }
+    .cta, .trust { justify-content: center; }
+    .hero-art { order: -1; min-height: 260px; }
+    .story-art { order: -1; margin: 0 auto; }
+    .story-copy .eyebrow { justify-content: center; }
   }
 </style>

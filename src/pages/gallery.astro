@@ -4,65 +4,82 @@ import Base from '../layouts/Base.astro';
 // Placeholder gallery items. Replace each `emoji` tile with a real photo:
 // drop images into /public/images and swap the <span> for <img src="/images/your-cake.jpg" alt="..." />
 const items = [
-  { emoji: '🎂', label: 'Chocolate drip birthday cake' },
-  { emoji: '💐', label: 'Three-tier wedding cake' },
-  { emoji: '🧁', label: 'Vanilla buttercream cupcakes' },
-  { emoji: '🍓', label: 'Fresh strawberry gateau' },
-  { emoji: '🍋', label: 'Zesty lemon celebration cake' },
-  { emoji: '🍫', label: 'Rich chocolate fudge cake' },
-  { emoji: '🎉', label: 'Confetti party cake' },
-  { emoji: '🌸', label: 'Floral occasion cake' },
-  { emoji: '🍰', label: 'Classic Victoria sponge' },
+  { emoji: '🎂', label: 'Chocolate drip birthday cake', cat: 'Birthday' },
+  { emoji: '💐', label: 'Three-tier wedding cake', cat: 'Wedding' },
+  { emoji: '🧁', label: 'Vanilla buttercream cupcakes', cat: 'Treats' },
+  { emoji: '🍓', label: 'Fresh strawberry gateau', cat: 'Celebration' },
+  { emoji: '🍋', label: 'Zesty lemon celebration cake', cat: 'Celebration' },
+  { emoji: '🍫', label: 'Rich chocolate fudge cake', cat: 'Birthday' },
+  { emoji: '🎉', label: 'Confetti party cake', cat: 'Party' },
+  { emoji: '🌸', label: 'Floral occasion cake', cat: 'Bespoke' },
+  { emoji: '🍰', label: 'Classic Victoria sponge', cat: 'Classic' },
 ];
 ---
-<Base title="Gallery — Laurens Cakes" description="A gallery of handmade cakes by Laurens Cakes.">
-  <section class="section">
-    <div class="container center">
-      <p class="eyebrow">A taste of my work</p>
+<Base title="Gallery — Laurens Cakes" description="A gallery of bespoke handmade cakes by Laurens Cakes.">
+  <section class="page-head">
+    <div class="container center reveal">
+      <p class="eyebrow">The Collection</p>
+      <hr class="divider" />
       <h1>Gallery</h1>
-      <p class="lead">A selection of cakes I've baked. For the very latest, follow
-        <a href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">@laurenscakess</a> on Instagram.</p>
+      <p class="lead">A selection of cakes crafted by hand. For the very latest creations,
+        follow <a href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">@laurenscakess</a>.</p>
     </div>
+  </section>
 
+  <section class="section" style="padding-top: clamp(2rem,5vw,3.5rem);">
     <div class="container">
-      <div class="masonry">
+      <div class="masonry reveal">
         {items.map((it) => (
           <figure class="tile">
             <div class="ph"><span>{it.emoji}</span></div>
-            <figcaption>{it.label}</figcaption>
+            <figcaption>
+              <span class="cat">{it.cat}</span>
+              <span class="label">{it.label}</span>
+            </figcaption>
           </figure>
         ))}
       </div>
 
-      <div class="center" style="margin-top:2.5rem;">
-        <a class="btn" href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">See more on Instagram</a>
+      <div class="center" style="margin-top:3rem;">
+        <a class="btn gold" href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">See More on Instagram</a>
       </div>
     </div>
   </section>
 </Base>
 
 <style>
+  .page-head {
+    background:
+      radial-gradient(80% 120% at 80% 0%, var(--blush-soft), transparent 55%),
+      var(--ivory);
+    padding: clamp(3rem, 7vw, 5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+  }
   .masonry {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1.25rem;
-    margin-top: 2.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
   }
   .tile {
     margin: 0;
     background: var(--white);
+    border: 1px solid var(--line);
     border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform .18s ease;
+    box-shadow: var(--shadow-sm);
+    transition: transform .5s var(--ease), box-shadow .5s var(--ease);
   }
-  .tile:hover { transform: translateY(-4px); }
+  .tile:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
   .ph {
     aspect-ratio: 1;
     display: grid;
     place-items: center;
-    background: linear-gradient(135deg, var(--cream-2), #fbe0ea);
+    background:
+      radial-gradient(120% 120% at 70% 20%, var(--blush-soft), transparent 60%),
+      linear-gradient(135deg, var(--ivory-2), var(--blush));
   }
-  .ph span { font-size: 3.6rem; }
-  figcaption { padding: .85rem 1rem; font-size: .9rem; color: var(--cocoa-soft); }
+  .ph span { font-size: 3.8rem; transition: transform .5s var(--ease); }
+  .tile:hover .ph span { transform: scale(1.1); }
+  figcaption { padding: 1.1rem 1.25rem 1.3rem; display: flex; flex-direction: column; gap: .25rem; }
+  .cat { font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); }
+  .label { color: var(--cocoa); font-size: .98rem; }
 </style>
