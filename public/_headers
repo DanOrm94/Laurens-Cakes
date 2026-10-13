@@ -1,0 +1,10 @@
+# Cloudflare Pages headers
+# Long-cache the build's static assets (Astro fingerprints these filenames)
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Sensible security headers for all routes
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY

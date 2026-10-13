@@ -1,0 +1,46 @@
+---
+const { title, desc, emoji = '🍰', tag } = Astro.props;
+---
+<article class="card">
+  <div class="thumb">
+    <span class="emoji">{emoji}</span>
+    {tag && <span class="tag">{tag}</span>}
+  </div>
+  <div class="body">
+    <h3>{title}</h3>
+    <p>{desc}</p>
+  </div>
+</article>
+
+<style>
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(74,54,48,.18); }
+  .thumb {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--cream-2), #fbe0ea);
+  }
+  .emoji { font-size: 3.4rem; }
+  .tag {
+    position: absolute;
+    top: .75rem; left: .75rem;
+    background: rgba(255,255,255,.9);
+    color: var(--pink-deep);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: .25rem .65rem;
+    border-radius: 999px;
+  }
+  .body { padding: 1.1rem 1.25rem 1.4rem; }
+  .body p { margin: 0; font-size: .95rem; }
+</style>

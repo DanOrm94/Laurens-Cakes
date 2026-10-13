@@ -1,0 +1,42 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container inner">
+    <div>
+      <span class="brand">🎂 Laurens Cakes</span>
+      <p>Handmade celebration cakes, baked with love.</p>
+    </div>
+    <div class="links">
+      <a href="/gallery">Gallery</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="container copy">
+    <small>© {year} Laurens Cakes. All rights reserved.</small>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--cocoa);
+    color: #f3e7df;
+    padding: 2.5rem 0 1.5rem;
+    margin-top: 2rem;
+  }
+  .site-footer p { color: #d9c6bd; margin: .3rem 0 0; }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .brand { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: #fff; }
+  .links { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
+  .links a { color: #f3e7df; }
+  .links a:hover { color: var(--pink); }
+  .copy { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.12); }
+  .copy small { color: #c6b2a9; }
+</style>

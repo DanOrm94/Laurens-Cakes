@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Contact & Orders — Laurens Cakes" description="Order a custom cake or get in touch with Laurens Cakes.">
+  <section class="section">
+    <div class="container contact">
+      <div class="intro">
+        <p class="eyebrow">Get in touch</p>
+        <h1>Order your cake</h1>
+        <p>Tell me about your occasion and what you have in mind, and I'll get back to
+          you with availability and a quote. The more detail the better.</p>
+
+        <ul class="channels">
+          <li>
+            <span class="ico">📸</span>
+            <div>
+              <strong>Instagram</strong><br />
+              <a href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">@laurenscakess</a>
+              <small> — DM me for quick enquiries</small>
+            </div>
+          </li>
+          <li>
+            <span class="ico">✉️</span>
+            <div>
+              <strong>Email</strong><br />
+              <a href="mailto:hello@laurenscakes.example">hello@laurenscakes.example</a>
+              <small> — replace with your real email</small>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!--
+        This form posts to Formspree as a no-backend option that works on Cloudflare Pages.
+        1. Create a free form at https://formspree.io
+        2. Replace YOUR_FORM_ID below with your form's ID.
+        Prefer something else? Cloudflare Pages Functions or a Worker also work.
+      -->
+      <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label>
+          Your name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Occasion & date
+          <input type="text" name="occasion" placeholder="e.g. 30th birthday, 14 Feb" />
+        </label>
+        <label>
+          Tell me about your cake
+          <textarea name="message" rows="5" placeholder="Flavours, size/servings, theme, colours..." required></textarea>
+        </label>
+        <button class="btn" type="submit">Send enquiry</button>
+        <p class="note">Submitting sends your enquiry straight to my inbox.</p>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .channels { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 1rem; }
+  .channels li { display: flex; gap: .9rem; align-items: flex-start; }
+  .ico { font-size: 1.5rem; }
+  .channels small { color: var(--cocoa-soft); }
+
+  .form {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    display: grid;
+    gap: 1rem;
+  }
+  label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; color: var(--cocoa); }
+  input, textarea {
+    font: inherit;
+    padding: .7rem .85rem;
+    border: 1px solid var(--cream-2);
+    border-radius: 12px;
+    background: var(--cream);
+    color: var(--cocoa);
+    font-weight: 400;
+  }
+  input:focus, textarea:focus { outline: 2px solid var(--pink); border-color: var(--pink); }
+  .form .btn { justify-self: start; border: none; cursor: pointer; }
+  .note { margin: 0; font-size: .82rem; color: var(--cocoa-soft); }
+
+  @media (max-width: 760px) {
+    .contact { grid-template-columns: 1fr; }
+  }
+</style>

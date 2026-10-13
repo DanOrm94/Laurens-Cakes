@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Placeholder gallery items. Replace each `emoji` tile with a real photo:
+// drop images into /public/images and swap the <span> for <img src="/images/your-cake.jpg" alt="..." />
+const items = [
+  { emoji: '🎂', label: 'Chocolate drip birthday cake' },
+  { emoji: '💐', label: 'Three-tier wedding cake' },
+  { emoji: '🧁', label: 'Vanilla buttercream cupcakes' },
+  { emoji: '🍓', label: 'Fresh strawberry gateau' },
+  { emoji: '🍋', label: 'Zesty lemon celebration cake' },
+  { emoji: '🍫', label: 'Rich chocolate fudge cake' },
+  { emoji: '🎉', label: 'Confetti party cake' },
+  { emoji: '🌸', label: 'Floral occasion cake' },
+  { emoji: '🍰', label: 'Classic Victoria sponge' },
+];
+---
+<Base title="Gallery — Laurens Cakes" description="A gallery of handmade cakes by Laurens Cakes.">
+  <section class="section">
+    <div class="container center">
+      <p class="eyebrow">A taste of my work</p>
+      <h1>Gallery</h1>
+      <p class="lead">A selection of cakes I've baked. For the very latest, follow
+        <a href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">@laurenscakess</a> on Instagram.</p>
+    </div>
+
+    <div class="container">
+      <div class="masonry">
+        {items.map((it) => (
+          <figure class="tile">
+            <div class="ph"><span>{it.emoji}</span></div>
+            <figcaption>{it.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div class="center" style="margin-top:2.5rem;">
+        <a class="btn" href="https://www.instagram.com/laurenscakess/" target="_blank" rel="noopener">See more on Instagram</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .tile {
+    margin: 0;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform .18s ease;
+  }
+  .tile:hover { transform: translateY(-4px); }
+  .ph {
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--cream-2), #fbe0ea);
+  }
+  .ph span { font-size: 3.6rem; }
+  figcaption { padding: .85rem 1rem; font-size: .9rem; color: var(--cocoa-soft); }
+</style>

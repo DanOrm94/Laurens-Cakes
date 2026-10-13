@@ -1,0 +1,90 @@
+:root {
+  --pink: #e8a0bf;
+  --pink-deep: #d16a9a;
+  --cream: #fff8f3;
+  --cream-2: #fdeee4;
+  --cocoa: #4a3630;
+  --cocoa-soft: #6b534a;
+  --gold: #c9a24b;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(74, 54, 48, 0.12);
+  --radius: 18px;
+  --max: 1100px;
+  --font-head: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--cocoa);
+  background: var(--cream);
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  color: var(--cocoa);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 0 0 .4em; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin: 0 0 .6em; }
+h3 { font-size: 1.25rem; margin: 0 0 .4em; }
+
+p { margin: 0 0 1em; color: var(--cocoa-soft); }
+
+a { color: var(--pink-deep); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0 0 .6rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--pink-deep);
+  color: var(--white);
+  padding: .85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  box-shadow: var(--shadow);
+}
+.btn:hover { background: #bc5888; text-decoration: none; transform: translateY(-2px); }
+
+.btn.ghost {
+  background: transparent;
+  color: var(--pink-deep);
+  border: 2px solid var(--pink);
+  box-shadow: none;
+}
+.btn.ghost:hover { background: var(--cream-2); }
+
+.center { text-align: center; }
+.lead { font-size: 1.15rem; max-width: 620px; margin-inline: auto; }
