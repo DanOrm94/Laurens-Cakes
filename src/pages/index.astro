@@ -43,6 +43,22 @@ const specialties = [
     </div>
   </section>
 
+  <!-- Bakery info / trust band -->
+  <section class="info">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">Bespoke cakes &amp; sweet treats</p>
+        <h2>Why order from Laurens Cakes</h2>
+      </div>
+      <ul class="info-grid">
+        <li><span class="ico">🍰</span><h3>Bespoke cakes &amp; sweet treats</h3><p>Every bake made to order, designed around you.</p></li>
+        <li><span class="ico">✍🏼</span><h3>Fully insured &amp; registered</h3><p>A registered, fully insured home bakery you can trust.</p></li>
+        <li><span class="ico">🤎</span><h3>Easy enquiries</h3><p>DM me with any enquiries and I'll help you plan.</p></li>
+        <li><span class="ico">📦</span><h3>UK-wide shipping</h3><p>I ship anywhere in the UK, right to your door.</p></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- Instagram band -->
   <section class="ig-band">
     <div class="container ig-inner">
@@ -95,6 +111,25 @@ const specialties = [
     gap: 1.5rem;
     margin-top: 2.5rem;
   }
+
+  .info { background: var(--cream-2); }
+  .info-grid {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .info-grid li {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.6rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .info-grid .ico { font-size: 2.4rem; }
+  .info-grid p { margin: 0; font-size: .95rem; }
 
   .ig-band { background: linear-gradient(135deg, var(--pink), var(--pink-deep)); }
   .ig-inner {
